@@ -1,0 +1,49 @@
+<ng-template #divLoading>
+  <mat-grid-list cols="1">
+    <mat-grid-tile>
+      <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+  </mat-grid-list>
+</ng-template>
+
+
+<div *ngIf="beer;else divLoading" class="grid mt-2 p-2">
+
+  <mat-card class="col-12 sm:col-6">
+
+    <mat-card-header>
+      <mat-card-title> {{beer.name}} </mat-card-title>
+      <mat-card-subtitle> {{beer.abv}} </mat-card-subtitle>
+    </mat-card-header>
+
+    <div class="img-container">
+      <img [src]="beer.image_url" [alt]="beer.image_url" class="image">
+    </div>
+
+  </mat-card>
+
+  <mat-card class="col-12 sm:col-6">
+
+    <mat-card-header>
+      <mat-card-title> {{beer.name}} </mat-card-title>
+      <mat-card-subtitle> {{beer.abv}} </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item> {{beer.description}} </mat-list-item>
+        <mat-list-item> {{beer.ingredients.yeast}} </mat-list-item>
+        <mat-list-item> {{beer.volume.value}} {{beer.volume.unit}} </mat-list-item>
+        <mat-list-item> {{beer.contributed_by}} </mat-list-item>
+      </mat-list>
+
+      <button mat-button color="warn" (click)="goBack()">
+        Volver
+      </button>
+
+    </mat-card-content>
+
+  </mat-card>
+
+</div>
+
